@@ -10,7 +10,6 @@ var _mat_divisor: StandardMaterial3D = null
 func _ready() -> void:
     for portao in _portoes():
         portao.atravessado.connect(_on_atravessado)
-    _conferir_sinais()
 
 
 # Desativa o outro lado quando um portao e atravessado
@@ -79,15 +78,3 @@ func _portoes() -> Array[Area3D]:
         if filho is Area3D:
             lista.append(filho)
     return lista
-
-
-# Avisa no log se o par ficou com sinais trocados
-func _conferir_sinais() -> void:
-    var portoes := _portoes()
-    if portoes.size() != 2:
-        push_warning("%s: par com %d portoes, esperado 2." % [name, portoes.size()])
-        return
-    var a: bool = Estado.e_positiva(portoes[0].operacao)
-    var b: bool = Estado.e_positiva(portoes[1].operacao)
-    if a != b:
-        push_warning("%s: par com sinais misturados. A escolha fica obvia." % name)

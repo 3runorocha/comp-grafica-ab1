@@ -79,6 +79,4 @@ func _mover_alvo(quanto: float) -> void:
 
 # Ajusta o modo do cursor conforme a fonte de controle
 func _aplicar_modo() -> void:
-    if DisplayServer.get_name() == "headless":
-        return
     Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if modo == Modo.MOUSE else Input.MOUSE_MODE_VISIBLE

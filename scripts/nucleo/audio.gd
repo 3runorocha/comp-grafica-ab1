@@ -101,7 +101,6 @@ func _tocar_musica() -> void:
             _musica.stream = _em_loop(fluxo)
             _musica.play()
             return
-    push_warning("audio: sem trilha. Ponha um destes em %s: %s" % [PASTA, ", ".join(MUSICA)])
 
 
 # Liga o loop no fluxo de audio conforme o formato

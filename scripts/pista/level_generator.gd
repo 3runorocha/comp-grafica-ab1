@@ -34,7 +34,6 @@ func _ready() -> void:
     _rng.randomize()
     _player = Comum.achar(self, player_path, "level_generator") as Node3D
     if _player == null or cena_par == null:
-        push_warning("level_generator: falta o jogador ou a cena do par.")
         return
 
     _configurar_chegada()

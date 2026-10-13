@@ -18,10 +18,6 @@ func _ready() -> void:
     _player = get_node_or_null(player_path)
     _coletar(self)
     _caminhada = find_child("Caminhada", true, false)
-    if _caminhada == null:
-        push_warning("fitas_balanco: sem a caminhada, as fitas ficariam paradas.")
-    if _fitas.is_empty():
-        push_warning("fitas_balanco: nenhuma fita encontrada sob %s." % name)
 
 
 func _process(delta: float) -> void:

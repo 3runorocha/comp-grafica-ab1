@@ -10,7 +10,6 @@ extends Node3D
 @export var passo_entre_fileiras: float = 4.4
 @export var distancia_sumico: float = 660.0
 @export var faixa_sumico: float = 160.0
-@export var projeta_sombra: bool = true
 
 var _player: Node3D = null
 var _rng := RandomNumberGenerator.new()
@@ -20,7 +19,6 @@ func _ready() -> void:
     _rng.seed = 20261005
     _player = Comum.jogador(get_tree()) as Node3D
     if cena_coqueiro == null:
-        push_warning("roadside: cena_coqueiro nao definida.")
         return
     _plantar()
 
@@ -67,7 +65,6 @@ func _plantar() -> void:
             arvore.rotation.y = giros[k]
             arvore.scale = Vector3.ONE * tamanhos[k]
             _aplicar_sumico(arvore, materiais)
-            _aplicar_sombra(arvore)
 
 
 # Cria os materiais do coqueiro com sumico por distancia
@@ -97,15 +94,6 @@ func _aplicar_sumico(arvore: Node3D, materiais: Array[Material]) -> void:
         return
     for i in mini(materiais.size(), malha.get_surface_override_material_count()):
         malha.set_surface_override_material(i, materiais[i])
-
-
-# Desliga a sombra do coqueiro quando projeta_sombra esta falso
-func _aplicar_sombra(arvore: Node3D) -> void:
-    if projeta_sombra:
-        return
-    var malha := _achar_malha(arvore)
-    if malha != null:
-        malha.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 
 
 # Procura a primeira MeshInstance3D na arvore do no

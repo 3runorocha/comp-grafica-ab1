@@ -2,12 +2,9 @@ class_name Comum
 extends Object
 
 
-# Busca um no e avisa no log se nao achar
-static func achar(dono: Node, caminho: NodePath, quem: String) -> Node:
-    var alvo := dono.get_node_or_null(caminho)
-    if alvo == null:
-        push_warning("%s: nao encontrei o no em '%s'." % [quem, caminho])
-    return alvo
+# Busca um no pelo caminho
+static func achar(dono: Node, caminho: NodePath, _quem: String) -> Node:
+    return dono.get_node_or_null(caminho)
 
 
 # Calcula o peso de interpolacao independente da taxa de quadros

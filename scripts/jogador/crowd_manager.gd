@@ -29,7 +29,6 @@ func _ready() -> void:
     if _lider == null:
         return
     if cena_guerreiro == null:
-        push_warning("crowd_manager: cena_guerreiro nao definida.")
         return
 
     # Cria o pool de corpos, cada um com sua fase de caminhada

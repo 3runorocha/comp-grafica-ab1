@@ -18,14 +18,7 @@ build/
 Thumbs.db
 desktop.ini
 .DS_Store
-
-# Previas de render, geradas por tools/render_preview.py
-assets/*_previa.png
-assets/mestre_blockout_frente.png
-assets/mestre_blockout_costas.png
-
-CLAUDE.md
-SPRINT.md
+__pycache__/
 
 CLAUDE.md
 SPRINT.md

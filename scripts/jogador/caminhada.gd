@@ -23,8 +23,6 @@ func _ready() -> void:
     _coletar(get_parent())
     if _corpo != null:
         _altura_base = _corpo.position.y
-    if _perna_esq == null or _perna_dir == null:
-        push_warning("caminhada: nao achei as duas pernas sob %s." % get_parent().name)
 
 
 # Retorna o ponto atual do ciclo de passo
