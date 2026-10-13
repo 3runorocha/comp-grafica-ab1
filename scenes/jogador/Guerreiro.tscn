@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://assets/guerreiro_blockout.glb" id="1_guerreiro"]
+[ext_resource type="Script" path="res://scripts/jogador/caminhada.gd" id="2_passo"]
+
+[node name="Guerreiro" type="Node3D"]
+
+[node name="Modelo" parent="." instance=ExtResource("1_guerreiro")]
+
+[node name="Caminhada" type="Node3D" parent="Modelo"]
+script = ExtResource("2_passo")
+passada_graus = 22.0
+altura_do_salto = 0.035

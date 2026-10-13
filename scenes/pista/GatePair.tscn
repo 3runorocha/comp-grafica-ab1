@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/pista/gate_pair.gd" id="1_pair"]
+[ext_resource type="PackedScene" path="res://scenes/pista/Gate.tscn" id="2_gate"]
+
+[sub_resource type="BoxMesh" id="Malha_divisor"]
+size = Vector3(0.18, 3.4, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="Mat_divisor"]
+albedo_color = Color(0.18, 0.18, 0.2, 1)
+roughness = 0.8
+
+[node name="GatePair" type="Node3D"]
+script = ExtResource("1_pair")
+
+[node name="Divisor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+mesh = SubResource("Malha_divisor")
+material_override = SubResource("Mat_divisor")
+
+[node name="Esquerda" parent="." instance=ExtResource("2_gate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6, 1.5, 0)
+operacao = 0
+valor = 14
+
+[node name="Direita" parent="." instance=ExtResource("2_gate")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 1.5, 0)
+operacao = 2
+valor = 2

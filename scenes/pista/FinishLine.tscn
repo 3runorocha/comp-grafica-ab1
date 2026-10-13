@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/pista/finish_line.gd" id="1_fim"]
+
+[sub_resource type="BoxShape3D" id="Forma_fim"]
+size = Vector3(13, 5, 1)
+
+[sub_resource type="BoxMesh" id="Malha_fim"]
+size = Vector3(13, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_fim"]
+albedo_color = Color(0.95, 0.85, 0.25, 1)
+emission_enabled = true
+emission = Color(0.6, 0.5, 0.1, 1)
+emission_energy_multiplier = 0.4
+
+[node name="FinishLine" type="Area3D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_fim")
+
+[node name="Colisao" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("Forma_fim")
+
+[node name="Faixa" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("Malha_fim")
+material_override = SubResource("Mat_fim")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/pista/gate.gd" id="1_gate"]
+
+[sub_resource type="BoxShape3D" id="Forma_portao"]
+size = Vector3(5, 3, 3)
+
+[sub_resource type="BoxMesh" id="Malha_portao"]
+size = Vector3(5, 3, 0.4)
+
+[sub_resource type="StandardMaterial3D" id="Mat_portao"]
+transparency = 1
+albedo_color = Color(0.18, 0.72, 0.35, 0.45)
+
+[node name="Gate" type="Area3D"]
+collision_layer = 4
+collision_mask = 1
+script = ExtResource("1_gate")
+
+[node name="Colisao" type="CollisionShape3D" parent="."]
+shape = SubResource("Forma_portao")
+
+[node name="Painel" type="MeshInstance3D" parent="."]
+mesh = SubResource("Malha_portao")
+material_override = SubResource("Mat_portao")
+
+[node name="Placa" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.35)
+pixel_size = 0.008
+font_size = 220
+outline_size = 30
+text = "+10"

@@ -1,0 +1,134 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/interface/ui.gd" id="1_ui"]
+
+[node name="UI" type="CanvasLayer"]
+process_mode = 3
+layer = 2
+script = ExtResource("1_ui")
+
+[node name="Menu" type="Control" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Fundo" type="ColorRect" parent="Menu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.05, 0.06, 0.09, 0.85)
+
+[node name="Caixa" type="VBoxContainer" parent="Menu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -180.0
+offset_right = 260.0
+offset_bottom = 180.0
+theme_override_constants/separation = 18
+alignment = 1
+
+[node name="Titulo" type="Label" parent="Menu/Caixa"]
+theme_override_font_sizes/font_size = 60
+text = "Guerreiros"
+horizontal_alignment = 1
+
+[node name="Subtitulo" type="Label" parent="Menu/Caixa"]
+theme_override_font_sizes/font_size = 22
+text = "Escolha como quer jogar"
+horizontal_alignment = 1
+
+[node name="BotaoTeclado" type="Button" parent="Menu/Caixa"]
+custom_minimum_size = Vector2(0, 62)
+theme_override_font_sizes/font_size = 28
+text = "Teclado  (setas ou A/D)"
+
+[node name="BotaoMouse" type="Button" parent="Menu/Caixa"]
+custom_minimum_size = Vector2(0, 62)
+theme_override_font_sizes/font_size = 28
+text = "Mouse  (Esc solta o cursor)"
+
+[node name="Aviso" type="Label" parent="Menu/Caixa"]
+theme_override_font_sizes/font_size = 18
+text = "So uma fonte de controle fica ativa por partida"
+horizontal_alignment = 1
+
+[node name="Vitoria" type="Control" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Fundo" type="ColorRect" parent="Vitoria"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.04, 0.12, 0.07, 0.85)
+
+[node name="Caixa" type="VBoxContainer" parent="Vitoria"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -140.0
+offset_right = 300.0
+offset_bottom = 140.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Titulo" type="Label" parent="Vitoria/Caixa"]
+theme_override_font_sizes/font_size = 58
+text = "Chegou!"
+horizontal_alignment = 1
+
+[node name="Resultado" type="Label" parent="Vitoria/Caixa"]
+theme_override_font_sizes/font_size = 28
+text = "Voce chegou com 0 guerreiros"
+horizontal_alignment = 1
+
+[node name="BotaoReiniciar" type="Button" parent="Vitoria/Caixa"]
+custom_minimum_size = Vector2(0, 58)
+theme_override_font_sizes/font_size = 26
+text = "Jogar de novo  (Enter)"
+
+[node name="Derrota" type="Control" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Fundo" type="ColorRect" parent="Derrota"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.14, 0.04, 0.05, 0.85)
+
+[node name="Caixa" type="VBoxContainer" parent="Derrota"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -140.0
+offset_right = 300.0
+offset_bottom = 140.0
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="Titulo" type="Label" parent="Derrota/Caixa"]
+theme_override_font_sizes/font_size = 58
+text = "Ficou sem ninguem"
+horizontal_alignment = 1
+
+[node name="Mensagem" type="Label" parent="Derrota/Caixa"]
+theme_override_font_sizes/font_size = 28
+text = "O cordao acabou no meio do caminho"
+horizontal_alignment = 1
+
+[node name="BotaoReiniciar" type="Button" parent="Derrota/Caixa"]
+custom_minimum_size = Vector2(0, 58)
+theme_override_font_sizes/font_size = 26
+text = "Tentar de novo  (Enter)"
